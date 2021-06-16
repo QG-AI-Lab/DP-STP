@@ -6,6 +6,12 @@ Sequential Trajectory Data Publishing with Differential Privacy
 
 In this paper, we propose a probability distribution based model named DP-STP (Differentially Private Sequential Trajectory Publishing) which satisfies differential privacy while publishing sequential trajectory data with high utility.
 
+## Framework
+
+The framework includes three layers: data layer, logical layer and application layer. In data layer, we clean the original trajectory dataset with three filters to sample data with specific range of time, location and scale. Besides, we choose the shortest description data as the representative points by adopting Minimum Description Length (MDL) to simplify the dataset. In logical layer, firstly, we design a multilevel adaptive grid structure to discretize spatial domain. Rather than just one or two levels, the grid structure we designed is multilevel which could refine dense area better. The grid structure is data adaptive that we needn’t set the grid configuration according to the specified dataset features. Secondly, DP-StarM generates a rebuilt trajectory dataset by adopting specific steps in DP-Star. Thirdly, we present a two-stage postprocessing method, which is based on direction and density of trajectory to optimize generatedtrajectory. Specifically, the last trajectory point is added to the penultimate trajectory point directly in DP-Star that may lead to unreasonable deviation of direction. Based on direction- and density-based postprocessing, we design an outlier processing algorithm to remove and map the outliers in order to make trajectories with more utility. In application layer, we present visalization and some potential applications.
+
+<img src="https://i.loli.net/2021/06/16/kdwnm1rRFDy7AEt.png" alt="fig-framework.png"  />
+
 **The procedure of DP-STP is as follows：**
 
 1. Data Clean；
